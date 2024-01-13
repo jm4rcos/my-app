@@ -25,7 +25,8 @@ const Title = styled.div`
   position: absolute;
   font-size: 20px;
   font-weight: bold;
-  transform: ${(props) => `rotate(${props.angle}deg) translate(75px, -270px)`};
+  transform-origin: bottom center;
+  transform: ${(props) => `rotate(${props.angle + 16}deg) translate(0px, -273px)`};
 `;
 
 const Separator = styled.div`
