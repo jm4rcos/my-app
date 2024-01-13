@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: ${(props) => props.selected ? '#fde68a' : "white"};
+  background-color: #fff;
 
   cursor: pointer;
 `;
@@ -36,6 +36,7 @@ const Title = styled.div`
   position: absolute;
   font-size: 16px;
   font-weight: bold;
+  color: ${(props) => props.selected ? '#69C050' : "#333"};
   top: 31%;
   transform-origin: bottom center;
   transform: ${(props) => `rotate(${props.angle + props.action}deg) translate(0px, -112px)`};
@@ -78,7 +79,7 @@ const Diagrama4 = ({ action, selected, onSelect }) => {
       <Wrapper selected={selected}>
         {line1.map((line) => (
           <React.Fragment key={line.angle}>
-            <Title action={action} angle={line.angle}>
+            <Title selected={selected} action={action} angle={line.angle}>
               {line.label}
               <span>{line.sub}</span>
             </Title>

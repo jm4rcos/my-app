@@ -9,7 +9,6 @@ const Container = styled.div`
 
   border-radius: 50%;
   cursor: pointer;
-  /* background-color: ${(props) => props.selected ? '#fde68a' : "#fff"}; */
   z-index: 20;
 `;
 
@@ -24,13 +23,14 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: ${(props) => props.selected ? '#fde68a' : "#fff"};
+  background-color: #fff;
 
   cursor: pointer;
 `;
 
 const Title = styled.div`
   width: 30%;
+  color: ${(props) => props.selected ? '#69C050' : "#333"};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,10 +76,10 @@ const Diagrama2 = ({ action, selected, onSelect }) => {
 
   return (
     <Container selected={selected}>
-      <Wrapper selected={selected} onClick={onSelect}>
+      <Wrapper onClick={onSelect}>
         {line1.map((line) => (
           <React.Fragment key={line.angle}>
-            <Title action={action} angle={line.angle}>
+            <Title selected={selected} action={action} angle={line.angle}>
               {line.label}
               <span>{line.sub}</span>
             </Title>
@@ -87,7 +87,7 @@ const Diagrama2 = ({ action, selected, onSelect }) => {
           </React.Fragment>
         ))}
       </Wrapper>
-    </Container>
+    </Container >
   );
 };
 

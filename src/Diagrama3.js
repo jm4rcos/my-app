@@ -24,13 +24,14 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: ${(props) => props.selected ? '#fde68a' : "#fff"};
+  background-color: #fff;
   
     cursor: pointer;
 `;
 
 const Title = styled.div`
- width: 30%;
+  width: 30%;
+  color: ${(props) => props.selected ? '#69C050' : "#333"};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,11 +84,11 @@ const Diagrama3 = ({ action, selected, onSelect }) => {
       <Wrapper selected={selected} onClick={onSelect} >
         {line1.map((line) => (
           <React.Fragment key={line.angle}>
-            <Title action={action} angle={line.angle}>
+            <Title selected={selected} action={action} angle={line.angle}>
               {line.label}
               <span>{line.sub}</span>
             </Title>
-            <Separator angle={line.angle} />
+            <Separator selected={selected} angle={line.angle} />
           </React.Fragment>
         ))}
       </Wrapper>

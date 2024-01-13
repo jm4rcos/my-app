@@ -25,13 +25,14 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: ${(props) => props.selected ? '#fde68a' : "#fff"};
+  background-color: #fff;
 
   cursor: pointer;
 `;
 
 const Title = styled.div`
   position: absolute;
+  color: #333;
   font-size: 20px;
   font-weight: bold;
   top: 45%;
@@ -43,7 +44,7 @@ const Separator = styled.div`
   position: absolute;
   width: 1px;
   height: 300px;
-  background-color: ${(props) => `${props.selected ? "orange" : "#333"}`};
+  background-color: #333;
   top: -10%;
   left: 50%;
   transform-origin: 50% 100%;
