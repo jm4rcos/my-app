@@ -1,72 +1,74 @@
-import React from 'react';
-import styled from 'styled-components';
+import Diagrama1 from "./Diagrama1";
+import Diagrama2 from "./Diagrama2";
+import Diagrama3 from "./Diagrama3";
+import Diagrama4 from "./Diagrama4";
+import { useState } from "react";
+import Diagrama5 from "./Diagrama5";
+import { ActionContainer, Button, Container, DiagramTitle } from "./style";
 
-const Container = styled.div`
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Wrapper = styled.div`
-  position: relative;
-  width: 500px;
-  height: 500px;
-  border: 2px solid #333;
-  border-radius: 50%;
-  font-size: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Title = styled.div`
-  position: absolute;
-  font-size: 20px;
-  font-weight: bold;
-  transform: ${(props) => `rotate(${props.angle}deg) translate(75px, -270px)`};
-`;
-
-const Separator = styled.div`
-  position: absolute;
-  width: 1px;
-  height: 300px;
-  background-color: #333;
-  top: -10%;
-  left: 50%;
-  transform-origin: 50% 100%;
-  transform: ${(props) => `rotate(${props.angle}deg)`};
-`;
+const diagrams = [
+    { id: 0, component: Diagrama1, name: "", value: 0 },
+    { id: 1, component: Diagrama2, name: "Natural", value: 0 },
+    { id: 2, component: Diagrama3, name: "Melódica", value: 0 },
+    { id: 3, component: Diagrama4, name: "Harmônica", value: 0 },
+    { id: 4, component: Diagrama5, name: "Cromática", value: 0 },
+]
 
 const App = () => {
-  const line1 = [
-    { label: "1/8", angle: 0 },
-    { label: "2b", angle: 30 },
-    { label: "2", angle: 60 },
-    { label: "2+/3b", angle: 90 },
-    { label: "3/4b/11b", angle: 120 },
-    { label: "4", angle: 150 },
-    { label: "4+/11+/5b", angle: 180 },
-    { label: "5", angle: 210 },
-    { label: "5+/6b/13b", angle: 240 },
-    { label: "6", angle: 270 },
-    { label: "7b", angle: 300 },
-    { label: "7", angle: 330 },
-  ];
+    const [selectedDiagram, setSelectedDiagram] = useState("Selecione um Diagrama")
+    const [diagramStates, setDiagramStates] = useState(diagrams.map(diagram => ({
+        id: diagram.id,
+        value: 0,
+        component: null,
+        name: "",
+        value: 0
+    })));
 
-  return (
-    <Container>
-      <Wrapper>
-        {line1.map((line) => (
-          <React.Fragment key={line.angle}>
-            <Title angle={line.angle}>{line.label}</Title>
-            <Separator angle={line.angle} />
-          </React.Fragment>
-        ))}
-      </Wrapper>
-    </Container>
-  );
-};
+    const handleNext = () => {
+        setDiagramStates(prevStates => prevStates.map(diagramState => ({
+            ...diagramState,
+            value: diagramState.id === selectedDiagram.id ? diagramState.value + 30 : diagramState.value
+        })));
+    }
+
+    const handleBack = () => {
+        setDiagramStates(prevStates => prevStates.map(diagramState => ({
+            ...diagramState,
+            value: diagramState.id === selectedDiagram.id ? diagramState.value - 30 : diagramState.value
+        })));
+    }
+
+    const handleSelectDiagram = (diagramId) => {
+        const selectedDiagram = diagrams.find(diagram => diagram.id === diagramId);
+        setSelectedDiagram(selectedDiagram);
+    }
+
+    return (
+        <Container>
+            {diagramStates.map((diagramState) => {
+                const { id, value, component, name } = diagramState;
+                const DiagramComponent = diagrams.find(diagram => diagram.id === id).component;
+
+                return (
+                    <DiagramComponent
+                        onSelect={() => {
+                            handleSelectDiagram(diagramState.id)
+                            console.log(diagramState);
+                        }}
+                        selected={selectedDiagram?.id === id}
+                        action={value} key={id}
+                    />
+                )
+            })}
+            <ActionContainer>
+                <DiagramTitle>{selectedDiagram.name || "Selecione um Diagrama"}</DiagramTitle>
+                <div>
+                    <Button disabled={selectedDiagram.id === 0} onClick={handleBack}>Voltar</Button>
+                    <Button disabled={selectedDiagram.id === 0} onClick={handleNext}>Avançar</Button>
+                </div>
+            </ActionContainer>
+        </Container>
+    )
+}
 
 export default App;
