@@ -4,7 +4,7 @@ import Diagrama3 from "./Diagrama3";
 import Diagrama4 from "./Diagrama4";
 import { useState } from "react";
 import Diagrama5 from "./Diagrama5";
-import { ActionContainer, Button, Container, DiagramTitle } from "./style";
+import { ActionContainer, Button, Container, DiagramContainer, DiagramTitle } from "./style";
 
 const diagrams = [
     { id: 0, component: Diagrama1, name: "", value: 0 },
@@ -45,21 +45,23 @@ const App = () => {
 
     return (
         <Container>
-            {diagramStates.map((diagramState) => {
-                const { id, value, component, name } = diagramState;
-                const DiagramComponent = diagrams.find(diagram => diagram.id === id).component;
+            <DiagramContainer>
+                {diagramStates.map((diagramState) => {
+                    const { id, value, component, name } = diagramState;
+                    const DiagramComponent = diagrams.find(diagram => diagram.id === id).component;
 
-                return (
-                    <DiagramComponent
-                        onSelect={() => {
-                            handleSelectDiagram(diagramState.id)
-                            console.log(diagramState);
-                        }}
-                        selected={selectedDiagram?.id === id}
-                        action={value} key={id}
-                    />
-                )
-            })}
+                    return (
+                        <DiagramComponent
+                            onSelect={() => {
+                                handleSelectDiagram(diagramState.id)
+                                console.log(diagramState);
+                            }}
+                            selected={selectedDiagram?.id === id}
+                            action={value} key={id}
+                        />
+                    )
+                })}
+            </DiagramContainer>
             <ActionContainer>
                 <DiagramTitle>{selectedDiagram.name || "Selecione um Diagrama"}</DiagramTitle>
                 <div>

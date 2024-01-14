@@ -8,6 +8,8 @@ export const Container = styled.div`
     align-items: center;
 
     position: relative;
+
+    overflow: hidden;
 `;
 
 export const Button = styled.button`
@@ -19,6 +21,18 @@ export const Button = styled.button`
     color: #000;
     font-weight: bold;
     cursor: pointer;
+`
+
+export const DiagramContainer = styled.div`
+ height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+transform: rotate(15deg) scale(1.2);
+top: -50px;
 `
 
 export const ActionContainer = styled.div`
