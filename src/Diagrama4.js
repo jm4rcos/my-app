@@ -9,6 +9,8 @@ const Container = styled.div`
 
   border-radius: 50%;
 
+  transition: all 0.2s linear;
+
   z-index: 40;
 `;
 
@@ -36,9 +38,10 @@ const Title = styled.div`
   position: absolute;
   font-size: 16px;
   font-weight: bold;
-  color: ${(props) => props.selected ? '#69C050' : "#333"};
+  color: ${(props) => props.selected ? '#f7A400' : "#333"};
   top: 31%;
   transform-origin: bottom center;
+  transition: all 0.2s linear;
   transform: ${(props) => `rotate(${props.angle + props.action}deg) translate(0px, -112px)`};
 
   & > span {
@@ -49,7 +52,7 @@ const Title = styled.div`
 
 const Separator = styled.div`
   position: absolute;
-  width: 1px;
+  width: 2px;
   height: 100px;
   background-color: #333;
   top: 0%;

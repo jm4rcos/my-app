@@ -30,7 +30,7 @@ const Wrapper = styled.div`
 
 const Title = styled.div`
   width: 30%;
-  color: ${(props) => props.selected ? '#69C050' : "#333"};
+  color: ${(props) => props.selected ? '#f7A400' : "#333"};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,6 +39,7 @@ const Title = styled.div`
   font-weight: bold;
   top: 39%;
   transform-origin: bottom center;
+  transition: all 0.2s linear;
   transform: ${(props) => `rotate(${props.angle + props.action}deg) translate(0px, -205px)`};
 
   & > span {
@@ -49,7 +50,7 @@ const Title = styled.div`
 
 const Separator = styled.div`
   position: absolute;
-  width: 1px;
+  width: 2px;
   height: 200px;
   background-color: #333;
   top: 0%;
