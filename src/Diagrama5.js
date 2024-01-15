@@ -117,13 +117,13 @@ const Diagrama5 = ({ action, selected, onSelect }) => {
     ];
 
     const circles = [
-        { label: "BC", angle: -8, centre: -10, top: '3px', left: '10%', rotate: '-43deg' },
-        { label: "C#D", angle: 20, centre: 30, top: '-1px', left: '42%', rotate: '16deg' },
-        { label: "D#E", angle: 28, centre: 68, top: '10px', left: '70%', rotate: '73deg' },
-        { label: "FF#", angle: 7, centre: 88, top: '31px', left: '62%', rotate: '133deg' },
-        { label: "GG#", angle: -20, centre: 82, top: '36px', left: '25%', rotate: '203deg' },
-        { label: "AA#", angle: -29, centre: 50, top: '24px', left: '0%', rotate: '255deg' },
-        { label: "", angle: 0, centre: 60 },
+        { label: "BC", angle: -8, centre: '-10', top: '3px', left: '10%', rotate: '-43deg' },
+        { label: "C#D", angle: 20, centre: '30', top: '-1px', left: '42%', rotate: '16deg' },
+        { label: "D#E", angle: 28, centre: '68', top: '10px', left: '70%', rotate: '73deg' },
+        { label: "FF#", angle: 7, centre: '88', top: '31px', left: '62%', rotate: '133deg' },
+        { label: "GG#", angle: -20, centre: '82', top: '36px', left: '25%', rotate: '203deg' },
+        { label: "AA#", angle: -29, centre: '50', top: '24px', left: '0%', rotate: '255deg' },
+        { label: "", angle: 0, centre: '60' },
     ]
 
     const subtexts = [
