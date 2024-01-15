@@ -127,13 +127,13 @@ const Diagrama5 = ({ action, selected, onSelect }) => {
     ]
 
     const subtexts = [
-        { label: "Bb", top: '20px', left: '21px', rotate: '-59deg' },
-        { label: "Cb", top: '12px', left: '29px', rotate: '-30deg' },
-        { label: "Db", top: '11px', left: '57.5px', rotate: '21deg' },
-        { label: "Eb", top: '35px', left: '75px', rotate: '82deg' },
-        { label: "Fb", top: '52.5px', left: '70px', rotate: '122deg' },
-        { label: "Gb", top: '66px', left: '44px', rotate: '187deg' },
-        { label: "Ab", top: '49.5px', left: '18px', rotate: '-115deg' }
+        { label: "Bb", top: '29px', left: '21px', rotate: '-59deg' },
+        { label: "Cb", top: '20px', left: '29px', rotate: '-30deg' },
+        { label: "Db", top: '19px', left: '56.5px', rotate: '21deg' },
+        { label: "Eb", top: '42px', left: '74px', rotate: '82deg' },
+        { label: "Fb", top: '61px', left: '69px', rotate: '122deg' },
+        { label: "Gb", top: '73px', left: '43px', rotate: '187deg' },
+        { label: "Ab", top: '57px', left: '19px', rotate: '-115deg' }
     ]
 
     return (

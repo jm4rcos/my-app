@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    height: 100vh;;
+    height: 100vh;
     width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-evenly;
+
+    flex-direction: column;
 
     position: relative;
-
     overflow: hidden;
 `;
 
@@ -24,30 +25,38 @@ export const Button = styled.button`
 `
 
 export const DiagramContainer = styled.div`
- height: 100vh;
+   @media (max-width: 600px) {
+       transform: rotate(15deg) scale(0.8);
+   }
+
+   @media (max-width: 460px) {
+       transform: rotate(15deg) scale(0.7);
+   }
+
+    height: 100%;
+    max-height: 500px;
     width: 100%;
+    
     display: flex;
     justify-content: center;
     align-items: center;
 
     position: relative;
-    transform: rotate(15deg) scale(1.2);
-    top: -50px;
+    transform: rotate(15deg);
 `
 
 export const ActionContainer = styled.div`
-    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    bottom: 50px;
 
     > div {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 1rem;
+        margin-top: 1rem;
     }
 `
 

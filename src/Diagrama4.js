@@ -45,8 +45,10 @@ const Title = styled.div`
   transform: ${(props) => `rotate(${props.angle + props.action}deg) translate(0px, -112px)`};
 
   & > span {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 500;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
   }
 `;
 
@@ -63,18 +65,18 @@ const Separator = styled.div`
 
 const Diagrama4 = ({ action, selected, onSelect }) => {
   const line1 = [
-    { label: "Xm7M", sub: "9 11 13", angle: 0 },
+    { label: "Xm7M", sub: "9 11 13b", angle: 0 },
     { label: "-", sub: "-", angle: 30 },
-    { label: "Xm7", sub: "9b 11 13", angle: 60 },
-    { label: "X7M(5+)", sub: "9 11+ 13", angle: 90 },
+    { label: "Xø", sub: "9b 11 13", angle: 60 },
+    { label: "X7M(5+)", sub: "9 11 13", angle: 90 },
     { label: "-", sub: "-", angle: 120 },
-    { label: "X7", sub: "9 11+ 13", angle: 150 },
+    { label: "Xm7", sub: "9 11+ 13", angle: 150 },
     { label: "-", sub: "-", angle: 180 },
-    { label: "X7", sub: "9 11 13b", angle: 210 },
-    { label: "-", sub: "-", angle: 240 },
-    { label: "Xø", sub: "9 11 13b", angle: 270 },
+    { label: "X7", sub: "9b 11 13b", angle: 210 },
+    { label: "X7M", sub: "9+ 11+ 13", angle: 240 },
+    { label: "-", sub: "-", angle: 270 },
     { label: "-", sub: "-", angle: 300 },
-    { label: "Xø", sub: "9b 11 13b", angle: 330 },
+    { label: "X0", sub: "9b 11 13b 13", angle: 330 },
   ];
 
   return (

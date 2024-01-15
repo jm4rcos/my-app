@@ -75,7 +75,7 @@ const Diagrama3 = ({ action, selected, onSelect }) => {
     { label: "-", sub: "-", angle: 240 },
     { label: "Xø", sub: "9 11 13b", angle: 270 },
     { label: "-", sub: "-", angle: 300 },
-    { label: "Xø", sub: "9b 11 13b", angle: 330 },
+    { label: "Xø", sub: "9b 11b 13b", angle: 330 },
   ];
 
   return (
