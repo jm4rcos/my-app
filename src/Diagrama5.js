@@ -1,164 +1,59 @@
-import React from 'react';
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
+    /* background-color: crimson; */
+    position: absolute;
 
-  border-radius: 50%;
-  transform: scale(2);
+    z-index: 100;
 
-  z-index: 40;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
 `;
 
-const Wrapper = styled.div`
-  position: relative;
-  width: 100px;
-  height: 100px;
-  border: 1px solid #333;
-  border-radius: 50%;
-  font-size: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const Title = styled.div`
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    ${(props) => props.right && `right: ${props.right}px;`}
+    ${(props) => props.top && `top: ${props.top}px;`}
+    ${(props) => props.rotate && `transform: rotate(${props.rotate}deg);`}
+    
 
-  transition: 0.2s linear;
-
-  transform: ${(props) => `rotate(${props.action}deg)`};
-
-  background-color: #fff;
-
-  cursor: pointer;
-`;
-
-const Separator = styled.div`
-  position: absolute;
-  width: 0.5px;
-  height: 50px;
-  background-color: #333;
-  top: 0%;
-  left: 50%;
-  transform-origin: 50% 100%;
-  transform: ${(props) => `rotate(${props.angle + 15}deg)`};
-`;
-
-const CircleContainer = styled.div`
-    position: relative;
-    width: 100%;
-  height: 100%;
-  background-color: transparent;
-  border-radius: 50%;
-  transition: all 0.2s linear;
-
-  transform-origin: bottom center;
-  transform: ${(props) => `rotate(${props.angle + props.action}deg) translate(0px, -112px)`};
+    /* ${(props) => props.top && `top: ${props.top}`};
+    ${(props) => props.rotate && `transform: rotate(${props.rotate});`}
+    ${(props) => props.left && `left: ${props.left}`}; */
 `
-const calculatePosition = (angle) => {
-    const radius = 50; // Raio do círculo
-    const centerX = 50; // Centro do círculo X
-    const centerY = 50; // Centro do círculo Y
 
-    const radians = (angle - 90) * (Math.PI / 180); // Converte graus para radianos
-    const x = centerX + radius * Math.cos(radians);
-    const y = centerY + radius * Math.sin(radians);
+const titles = [
+    { label: "F#", right: 90, top: 172, rotate: 180 },
+    { label: "G", right: 135, top: 163, rotate: 210 },
+    { label: "G#", right: 163, top: 130, rotate: 240 },
+    { label: "A", right: 180, top: 90, rotate: 270 },
+    { label: "A#", right: 163, top: 42, rotate: 300 },
+    { label: "B", right: 135, top: 10, rotate: 330 },
+    { label: "C", right: 0, top: 0, rotate: 0 },
+    { label: "C#", right: 42, top: 14, rotate: 30 },
+    { label: "D", right: 18, top: 42, rotate: 60 },
+    { label: "D#", right: 1, top: 90, rotate: 90 },
+    { label: "E", right: 18, top: 130, rotate: 120 },
+    { label: "F", right: 52, top: 163, rotate: 150 },
+]
 
-    return { x, y };
-};
 
-const Circle = styled.div`
-  height: 49px;
-  width: 49px;
-  background-color: transparent;
-  border: 1px solid #333;
-  border-radius: 50%;
-
-  position: absolute;
-  transform: translate(${(props) => calculatePosition(props.angle).x - 25}px, ${(props) =>
-        calculatePosition(props.centre).y}px) rotate(30deg);
-`;
-
-const CircleText = styled.div`
-    width: 30%;
-    position: absolute;
-    font-size: 10px;
-    font-weight: 500;
-    color: ${(props) => props.selected ? '#f7A400' : "#333"};
-    ${(props) => props.top && `top: ${props.top}`};
-
-    ${(props) => props.rotate && `transform: rotate(${props.rotate});`}
-    ${(props) => props.left && `left: ${props.left}`};
-`;
-
-const CircleSubText = styled.p`
-    font-size: 8px;
-    color: ${(props) => props.selected ? '#f7A400' : "#333"};
-    position: absolute;
-    ${(props) => props.top && `top: ${props.top}`};
-    ${(props) => props.left && `left: ${props.left}`};
-    ${(props) => props.rotate && `transform: rotate(${props.rotate});`}
-`;
-
-const Diagrama5 = ({ action, selected, onSelect }) => {
-    const line1 = [
-        { label: "Xm7M", sub: "9 11 13", angle: 0 },
-        { label: "-", sub: "-", angle: 30 },
-        { label: "Xm7", sub: "9b 11 13", angle: 60 },
-        { label: "X7M(5+)", sub: "9 11+ 13", angle: 90 },
-        { label: "-", sub: "-", angle: 120 },
-        { label: "X7", sub: "9 11+ 13", angle: 150 },
-        { label: "-", sub: "-", angle: 180 },
-        { label: "X7", sub: "9 11 13b", angle: 210 },
-        { label: "-", sub: "-", angle: 240 },
-        { label: "Xø", sub: "9 11 13b", angle: 270 },
-        { label: "-", sub: "-", angle: 300 },
-        { label: "Xø", sub: "9b 11 13b", angle: 330 },
-    ];
-
-    const circles = [
-        { label: "BC", angle: -8, centre: '-10', top: '3px', left: '10%', rotate: '-43deg' },
-        { label: "C#D", angle: 20, centre: '30', top: '-1px', left: '42%', rotate: '16deg' },
-        { label: "D#E", angle: 28, centre: '68', top: '10px', left: '70%', rotate: '73deg' },
-        { label: "FF#", angle: 7, centre: '88', top: '31px', left: '62%', rotate: '133deg' },
-        { label: "GG#", angle: -20, centre: '82', top: '36px', left: '25%', rotate: '203deg' },
-        { label: "AA#", angle: -29, centre: '50', top: '24px', left: '0%', rotate: '255deg' },
-        { label: "", angle: 0, centre: '60' },
-    ]
-
-    const subtexts = [
-        { label: "Bb", top: '29px', left: '21px', rotate: '-59deg' },
-        { label: "Cb", top: '20px', left: '29px', rotate: '-30deg' },
-        { label: "Db", top: '19px', left: '56.5px', rotate: '21deg' },
-        { label: "Eb", top: '42px', left: '74px', rotate: '82deg' },
-        { label: "Fb", top: '61px', left: '69px', rotate: '122deg' },
-        { label: "Gb", top: '73px', left: '43px', rotate: '187deg' },
-        { label: "Ab", top: '57px', left: '19px', rotate: '-115deg' }
-    ]
-
+const Diagrama1 = ({ action }) => {
     return (
-        <Container onClick={onSelect}>
-            <Wrapper action={action} selected={selected}>
-                {line1.map((line) => (
-                    <React.Fragment key={line.angle}>
-                        <Separator angle={line.angle} />
-                    </React.Fragment>
-                ))}
-                <CircleContainer>
-                    {circles.map((circle) => (
-                        <Circle key={circle.label} centre={circle.centre} angle={circle.angle}>
-                            <CircleText rotate={circle.rotate} left={circle.left} top={circle.top} selected={selected}>{circle.label}</CircleText>
-                            <CircleSubText selected={selected}>
-                            </CircleSubText>
-                        </Circle>
-                    ))}
-                    {subtexts.map((sub, index) => (
-                        <CircleSubText selected={selected} rotate={sub.rotate} left={sub.left} top={sub.top} key={index}>{sub.label}</CircleSubText>
-                    ))}
-                </CircleContainer>
-            </Wrapper>
-        </Container >
-    );
-};
+        <Container>
+            {titles.map((title) => (
+                <Title rotate={title.rotate} top={title.top} right={title.right}>{title.label}</Title>
+            ))}
+        </Container>
+    )
+}
 
-export default Diagrama5;
+export default Diagrama1;

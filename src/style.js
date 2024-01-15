@@ -10,7 +10,6 @@ export const Container = styled.div`
     flex-direction: column;
 
     position: relative;
-    overflow: hidden;
 `;
 
 export const Button = styled.button`
@@ -26,15 +25,16 @@ export const Button = styled.button`
 
 export const DiagramContainer = styled.div`
    @media (max-width: 600px) {
-       transform: rotate(15deg) scale(0.8);
+       /* transform: rotate(15deg) scale(0.8); */
    }
 
    @media (max-width: 460px) {
-       transform: rotate(15deg) scale(0.7);
+       /* transform: rotate(15deg) scale(0.7); */
    }
 
     height: 100%;
     max-height: 500px;
+    max-width: 600px;
     width: 100%;
     
     display: flex;
@@ -42,7 +42,7 @@ export const DiagramContainer = styled.div`
     align-items: center;
 
     position: relative;
-    transform: rotate(15deg);
+    /* transform: rotate(15deg); */
 `
 
 export const ActionContainer = styled.div`
