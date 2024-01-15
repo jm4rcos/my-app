@@ -21,7 +21,7 @@ const App = () => {
         value: 0,
         component: null,
         name: "",
-        value: 0
+        value: new Date()
     })));
 
     const handleNext = () => {
