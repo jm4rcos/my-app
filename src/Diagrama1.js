@@ -42,7 +42,7 @@ const Title = styled.div`
 
 const Separator = styled.div`
   position: absolute;
-  width: 1px;
+  width: 2px;
   height: 300px;
   background-color: #333;
   top: -10%;

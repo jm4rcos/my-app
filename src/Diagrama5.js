@@ -8,6 +8,7 @@ const Container = styled.div`
   position: absolute;
 
   border-radius: 50%;
+  transform: scale(2);
 
   z-index: 40;
 `;
@@ -23,7 +24,9 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  transform: scale(2);
+  transition: 0.2s linear;
+
+  transform: ${(props) => `rotate(${props.action}deg)`};
 
   background-color: #fff;
 
@@ -47,6 +50,10 @@ const CircleContainer = styled.div`
   height: 100%;
   background-color: transparent;
   border-radius: 50%;
+  transition: all 0.2s linear;
+
+  transform-origin: bottom center;
+  transform: ${(props) => `rotate(${props.angle + props.action}deg) translate(0px, -112px)`};
 `
 const calculatePosition = (angle) => {
     const radius = 50; // Raio do círculo
@@ -72,29 +79,25 @@ const Circle = styled.div`
         calculatePosition(props.centre).y}px) rotate(30deg);
 `;
 
-const CircleText = styled.p`
+const CircleText = styled.div`
     width: 30%;
     position: absolute;
     font-size: 10px;
     font-weight: 500;
-    color: ${(props) => props.selected ? '#69C050' : "#333"};
+    color: ${(props) => props.selected ? '#f7A400' : "#333"};
     ${(props) => props.top && `top: ${props.top}`};
 
     ${(props) => props.rotate && `transform: rotate(${props.rotate});`}
     ${(props) => props.left && `left: ${props.left}`};
-
-    /* transform-origin: bottom center; */
-    /* transform: ${(props) => `rotate(${props.angle + props.action}deg) translate(0px, -22px)`};
-
-    & > span {
-        font-size: 12px;
-        font-weight: 500;
-    } */
 `;
 
-const CircleSubText = styled.span`
+const CircleSubText = styled.p`
     font-size: 8px;
-    color: ${(props) => props.selected ? '#69C050' : "#333"};
+    color: ${(props) => props.selected ? '#f7A400' : "#333"};
+    position: absolute;
+    ${(props) => props.top && `top: ${props.top}`};
+    ${(props) => props.left && `left: ${props.left}`};
+    ${(props) => props.rotate && `transform: rotate(${props.rotate});`}
 `;
 
 const Diagrama5 = ({ action, selected, onSelect }) => {
@@ -114,39 +117,47 @@ const Diagrama5 = ({ action, selected, onSelect }) => {
     ];
 
     const circles = [
-        { sub: "Bb Cb", label: "BC", angle: -8, centre: -10, top: '-6px', left: '10%', rotate: '-43deg' },
-        { sub: "Db", label: "C#D", angle: 20, centre: 30, top: '-10px', left: '42%', rotate: '16deg' },
-        { sub: "Eb", label: "D#E", angle: 28, centre: 68, top: '1px', left: '70%', rotate: '73deg' },
-        { sub: "Fb", label: "FF#", angle: 7, centre: 88, top: '21px', left: '62%', rotate: '133deg' },
-        { sub: "Gb", label: "GG#", angle: -20, centre: 82, top: '27px', left: '25%', rotate: '203deg' },
-        { sub: "Ab", label: "AA#", angle: -29, centre: 50, top: '15px', left: '0%', rotate: '255deg' },
+        { label: "BC", angle: -8, centre: -10, top: '3px', left: '10%', rotate: '-43deg' },
+        { label: "C#D", angle: 20, centre: 30, top: '-1px', left: '42%', rotate: '16deg' },
+        { label: "D#E", angle: 28, centre: 68, top: '10px', left: '70%', rotate: '73deg' },
+        { label: "FF#", angle: 7, centre: 88, top: '31px', left: '62%', rotate: '133deg' },
+        { label: "GG#", angle: -20, centre: 82, top: '36px', left: '25%', rotate: '203deg' },
+        { label: "AA#", angle: -29, centre: 50, top: '24px', left: '0%', rotate: '255deg' },
         { label: "", angle: 0, centre: 60 },
+    ]
+
+    const subtexts = [
+        { label: "Bb", top: '20px', left: '21px', rotate: '-59deg' },
+        { label: "Cb", top: '12px', left: '29px', rotate: '-30deg' },
+        { label: "Db", top: '11px', left: '57.5px', rotate: '21deg' },
+        { label: "Eb", top: '35px', left: '75px', rotate: '82deg' },
+        { label: "Fb", top: '52.5px', left: '70px', rotate: '122deg' },
+        { label: "Gb", top: '66px', left: '44px', rotate: '187deg' },
+        { label: "Ab", top: '49.5px', left: '18px', rotate: '-115deg' }
     ]
 
     return (
         <Container onClick={onSelect}>
-            <Wrapper selected={selected}>
+            <Wrapper action={action} selected={selected}>
                 {line1.map((line) => (
                     <React.Fragment key={line.angle}>
-                        {/* <Title selected={selected} action={action} angle={line.angle}>
-                            {line.label}
-                            <span>{line.sub}</span>
-                        </Title> */}
                         <Separator angle={line.angle} />
                     </React.Fragment>
                 ))}
                 <CircleContainer>
                     {circles.map((circle) => (
                         <Circle key={circle.label} centre={circle.centre} angle={circle.angle}>
-                            <CircleText rotate={circle.rotate} left={circle.left} top={circle.top} action={action} selected={selected}>{circle.label}</CircleText>
+                            <CircleText rotate={circle.rotate} left={circle.left} top={circle.top} selected={selected}>{circle.label}</CircleText>
                             <CircleSubText selected={selected}>
-                                {circle.sub}
                             </CircleSubText>
                         </Circle>
                     ))}
+                    {subtexts.map((sub, index) => (
+                        <CircleSubText selected={selected} rotate={sub.rotate} left={sub.left} top={sub.top} key={index}>{sub.label}</CircleSubText>
+                    ))}
                 </CircleContainer>
             </Wrapper>
-        </Container>
+        </Container >
     );
 };
 

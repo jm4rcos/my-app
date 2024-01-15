@@ -47,15 +47,12 @@ const App = () => {
         <Container>
             <DiagramContainer>
                 {diagramStates.map((diagramState) => {
-                    const { id, value, component, name } = diagramState;
+                    const { id, value } = diagramState;
                     const DiagramComponent = diagrams.find(diagram => diagram.id === id).component;
 
                     return (
                         <DiagramComponent
-                            onSelect={() => {
-                                handleSelectDiagram(diagramState.id)
-                                console.log(diagramState);
-                            }}
+                            onSelect={() => handleSelectDiagram(diagramState.id)}
                             selected={selectedDiagram?.id === id}
                             action={value} key={id}
                         />

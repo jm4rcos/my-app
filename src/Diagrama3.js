@@ -10,6 +10,8 @@ const Container = styled.div`
   border-radius: 50%;
   cursor: pointer;
 
+  transition: all 0.2s linear;
+
   z-index: 30;
   `;
 
@@ -31,7 +33,7 @@ const Wrapper = styled.div`
 
 const Title = styled.div`
   width: 30%;
-  color: ${(props) => props.selected ? '#69C050' : "#333"};
+  color: ${(props) => props.selected ? '#f7A400' : "#333"};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,6 +41,7 @@ const Title = styled.div`
   font-size: 18px;
   font-weight: bold;
   top: 35%;
+  transition: all 0.2s linear;
   transform-origin: bottom center;
   transform: ${(props) => `rotate(${props.angle + props.action}deg) translate(0px, -155px)`};
 
@@ -50,7 +53,7 @@ const Title = styled.div`
 
 const Separator = styled.div`
   position: absolute;
-  width: 1px;
+  width: 2px;
   height: 150px;
   background-color: #333;
   top: 0%;
@@ -74,10 +77,6 @@ const Diagrama3 = ({ action, selected, onSelect }) => {
     { label: "-", sub: "-", angle: 300 },
     { label: "Xø", sub: "9b 11 13b", angle: 330 },
   ];
-
-  useEffect(() => {
-    console.log(action);
-  }, [action])
 
   return (
     <Container>
