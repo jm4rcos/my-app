@@ -31,7 +31,7 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.div`
-  width: 30%;
+  width: 31%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,13 +39,13 @@ const Title = styled.div`
   font-size: 14px;
   font-weight: bold;
   color: ${(props) => props.selected ? '#f7A400' : "#333"};
-  top: 31%;
+  top: 33%;
   transform-origin: bottom center;
   transition: all 0.2s linear;
-  transform: ${(props) => `rotate(${props.angle + props.action}deg) translate(0px, -110px)`};
+  transform: ${(props) => `rotate(${props.angle + props.action}deg) translate(0px, -112px)`};
 
   & > span {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 500;
     flex-shrink: 0;
     flex-wrap: nowrap;
@@ -76,7 +76,7 @@ const Diagrama4 = ({ action, selected, onSelect }) => {
     { label: "X7M", sub: "9+ 11+ 13", angle: 240 },
     { label: "-", sub: "-", angle: 270 },
     { label: "-", sub: "-", angle: 300 },
-    { label: "X0", sub: "9b 11 13b 13", angle: 330 },
+    { label: "X0", sub: "9b 11b 13b 13", angle: 330 },
   ];
 
   return (

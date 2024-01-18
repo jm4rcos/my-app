@@ -25,11 +25,11 @@ export const Button = styled.button`
 
 export const DiagramContainer = styled.div`
    @media (max-width: 600px) {
-       transform: rotate(15deg) scale(0.8);
+       transform: scale(0.8);
    }
 
    @media (max-width: 460px) {
-       transform: rotate(15deg) scale(0.7);
+       transform: scale(0.7);
    }
 
     height: 100%;
@@ -42,7 +42,6 @@ export const DiagramContainer = styled.div`
     align-items: center;
 
     position: relative;
-    transform: rotate(15deg);
 `
 
 export const ActionContainer = styled.div`

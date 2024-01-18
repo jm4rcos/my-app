@@ -38,7 +38,7 @@ const Title = styled.div`
   flex-direction: column;
   align-items: center;
   position: absolute;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   top: 35%;
   transition: all 0.2s linear;

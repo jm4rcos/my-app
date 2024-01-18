@@ -63,8 +63,8 @@ const App = () => {
             <ActionContainer>
                 <DiagramTitle>{selectedDiagram.name || "Selecione um Diagrama"}</DiagramTitle>
                 <div>
-                    <Button disabled={selectedDiagram.id === 0} onClick={handleBack}>Voltar</Button>
                     <Button disabled={selectedDiagram.id === 0} onClick={handleNext}>Avançar</Button>
+                    <Button disabled={selectedDiagram.id === 0} onClick={handleBack}>Voltar</Button>
                 </div>
             </ActionContainer>
         </Container>
