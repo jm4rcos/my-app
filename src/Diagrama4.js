@@ -36,16 +36,16 @@ const Title = styled.div`
   flex-direction: column;
   align-items: center;
   position: absolute;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   color: ${(props) => props.selected ? '#f7A400' : "#333"};
   top: 31%;
   transform-origin: bottom center;
   transition: all 0.2s linear;
-  transform: ${(props) => `rotate(${props.angle + props.action}deg) translate(0px, -112px)`};
+  transform: ${(props) => `rotate(${props.angle + props.action}deg) translate(0px, -110px)`};
 
   & > span {
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 500;
     flex-shrink: 0;
     flex-wrap: nowrap;
