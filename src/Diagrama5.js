@@ -39,10 +39,6 @@ const Subtext = styled.p`
     ${(props) => props.rotate && `transform: rotate(${props.rotate}deg);`}
 `
 
-const RotateContainer = styled.div`
-
-`
-
 
 const titles = [
     { label: "F#", right: 90, top: 172, rotate: 180 },
@@ -73,14 +69,12 @@ const subtexts = [
 const Diagrama1 = ({ onSelect, selected, action }) => {
     return (
         <Container action={action} onClick={onSelect}>
-            <RotateContainer>
-                {titles.map((title) => (
-                    <Title selected={selected} rotate={title.rotate} top={title.top} right={title.right}>{title.label}</Title>
-                ))}
-                {subtexts.map((sub) => (
-                    <Subtext selected={selected} right={sub.right} top={sub.top} rotate={sub.rotate}>{sub.label}</Subtext>
-                ))}
-            </RotateContainer>
+            {titles.map((title) => (
+                <Title selected={selected} rotate={title.rotate} top={title.top} right={title.right}>{title.label}</Title>
+            ))}
+            {subtexts.map((sub) => (
+                <Subtext selected={selected} right={sub.right} top={sub.top} rotate={sub.rotate}>{sub.label}</Subtext>
+            ))}
         </Container>
     )
 }

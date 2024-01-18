@@ -5,6 +5,7 @@ import Diagrama4 from "./Diagrama4";
 import { useState } from "react";
 import Diagrama5 from "./Diagrama5";
 import { ActionContainer, Button, Container, DiagramContainer, DiagramTitle } from "./style";
+import Diagrama6 from "./Diagrama6";
 
 const diagrams = [
     { id: 0, component: Diagrama1, name: "", value: 0 },
@@ -12,6 +13,7 @@ const diagrams = [
     { id: 2, component: Diagrama3, name: "Melódica", value: 0 },
     { id: 3, component: Diagrama4, name: "Harmônica", value: 0 },
     { id: 4, component: Diagrama5, name: "Cromática", value: 0 },
+    { id: 5, component: Diagrama6, name: "", value: 0 },
 ]
 
 const App = () => {
