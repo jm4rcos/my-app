@@ -34,20 +34,23 @@ const Wrapper = styled.div`
     height: 100%;
     width: 100%;
     object-fit: contain;
+    z-index: 0;
+    border-radius: 50%;
+    background-color: #fff;
   }
 `;
 
 const Diagrama6 = () => {
-    return (
-        <Container>
-            <Wrapper>
-                <img
-                    src="/triangulo.svg"
-                    alt='diagrama'
-                />
-            </Wrapper>
-        </Container >
-    );
+  return (
+    <Container>
+      <Wrapper>
+        <img
+          src="/triangulo.svg"
+          alt='diagrama'
+        />
+      </Wrapper>
+    </Container >
+  );
 };
 
 export default Diagrama6;
